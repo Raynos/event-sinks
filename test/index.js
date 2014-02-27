@@ -10,11 +10,9 @@ test("eventSinks is a function", function (assert) {
 })
 
 test("can create sinks and find events", function (assert) {
-    var emitter = EventSinks(["foo", "bar"])
+    var emitter = EventSinks("test", ["foo", "bar"])
     var sinks = emitter.sinks
     var events = []
-
-    assert.equal(typeof emitter.id, "string")
 
     emitter.on("foo", function (ev) {
         events.push(["foo", ev])
@@ -33,11 +31,9 @@ test("can create sinks and find events", function (assert) {
 })
 
 test("can create sinks and find geval events", function (assert) {
-    var events = GevalSinks(["foo", "bar"])
+    var events = GevalSinks("test", ["foo", "bar"])
     var sinks = events.sinks
     var messages = []
-
-    assert.equal(typeof events.id, "string")
 
     events.foo(function (ev) {
         messages.push(["foo", ev])

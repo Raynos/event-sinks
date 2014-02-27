@@ -1,14 +1,10 @@
-var uuid = require("uuid")
 var EventEmitter = require("events").EventEmitter
 
 var Sink = require("./sink.js")
 
 module.exports = EventSinks
 
-function EventSinks(names, opts) {
-    opts = opts || {}
-
-    var id = opts.id || uuid()
+function EventSinks(id, names) {
     var emitter = new EventEmitter()
 
     var sinks = names.reduce(function (acc, key) {
@@ -17,7 +13,6 @@ function EventSinks(names, opts) {
     }, {})
 
     emitter.sinks = sinks
-    emitter.id = id
 
     return emitter
 

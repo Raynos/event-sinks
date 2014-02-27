@@ -21,9 +21,10 @@ This allows you to write decoupled interfaces.
 ## Example
 
 ```js
+var uuid = require("uuid")
 var EventSinks = require("event-sinks")
 
-var emitter = EventSinks(["foo", "bar"])
+var emitter = EventSinks(uuid(), ["foo", "bar"])
 var sinks = emitter.sinks
 
 emitter.on('foo', function (ev) {
@@ -41,8 +42,9 @@ sinks.bar.write('bar')
 
 ```js
 var EventSinks = require("event-sinks/geval")
+var uuid = require("uuid")
 
-var events = EventSinks(["foo", "bar"])
+var events = EventSinks(uuid(), ["foo", "bar"])
 var sinks = emitter.sinks
 
 events.foo(function (ev) {

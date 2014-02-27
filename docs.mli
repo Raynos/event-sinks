@@ -6,16 +6,12 @@ type Sink := {
     write: (Any) => void
 }
 
-event-sinks := (names: Array<String>, opts?: {
-    id: String
-}) => EventEmitter<String, Any> & {
-    sinks: Object<String, Sink>,
-    id: String
-}
+event-sinks := (id: String, names: Array<String>) 
+    => EventEmitter<String, Any> & {
+        sinks: Object<String, Sink>
+    }
 
-event-sinks/geval := (names: Array<String>, opts?: {
-    id: String
-}) => Object<String, Event> & {
-    sinks: Object<String, Sink>,
-    id: String
-}
+event-sinks/geval := (id: String, names: Array<String>) 
+    => Object<String, Event> & {
+        sinks: Object<String, Sink>
+    }
