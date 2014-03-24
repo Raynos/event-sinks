@@ -16,11 +16,9 @@ function EventSinks(id, names) {
     }, {})
 
     var sinks = names.reduce(function (acc, key) {
-        acc[key] = new Sink(id, key, events[key].broadcast)
+        acc[key] = new Sink(events[key].broadcast, id, key)
         return acc
     }, {})
 
-    sources.sinks = sinks
-
-    return sources
+    return { events: sources, sinks: sinks }
 }

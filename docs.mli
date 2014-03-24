@@ -7,11 +7,13 @@ type Sink := {
 }
 
 event-sinks := (id: String, names: Array<String>) 
-    => EventEmitter<String, Any> & {
+    => {
+        emitter: EventEmitter<String, Any>,
         sinks: Object<String, Sink>
     }
 
 event-sinks/geval := (id: String, names: Array<String>) 
-    => Object<String, Event> & {
+    =>  {
+        events: Object<String, Event>,
         sinks: Object<String, Sink>
     }
