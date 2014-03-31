@@ -20,7 +20,6 @@
     "geval": "~2.0.3"
   },
   "devDependencies": {
-    "uuid": "~1.4.1",
     "tape": "~2.5.0"
   },
   "licenses": [
