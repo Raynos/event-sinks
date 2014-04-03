@@ -2,7 +2,7 @@ module.exports = Sink
 
 function Sink(write, id, key) {
     if (!(this instanceof Sink)) {
-        return new Sink(id, key, write)
+        return new Sink(write, id, key)
     }
 
     this.id = id || ""
