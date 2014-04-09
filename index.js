@@ -1,6 +1,7 @@
 var EventEmitter = require("events").EventEmitter
-var Sink = require('./sink')
 var cuid = require("cuid")
+
+var Sink = require("./sink")
 
 module.exports = EventSinks
 
