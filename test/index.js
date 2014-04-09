@@ -31,6 +31,21 @@ test("can create sinks and find events", function (assert) {
     assert.end()
 })
 
+test("can create without id", function (assert) {
+    var inputs = EventSinks(["foo"])
+    var events = []
+
+    inputs.emitter.on("foo", function (ev) {
+        events.push(ev)
+    })
+
+    inputs.sinks.foo.write("hello")
+
+    assert.deepEqual(events, ["hello"])
+
+    assert.end()
+})
+
 test("can create sinks and find geval events", function (assert) {
     var inputs = GevalSinks("test", ["foo", "bar"])
     var events = inputs.events
@@ -49,6 +64,21 @@ test("can create sinks and find geval events", function (assert) {
 
     assert.deepEqual(messages[0], ["foo", "hello"])
     assert.deepEqual(messages[1], ["bar", "world"])
+
+    assert.end()
+})
+
+test("can create geval without id", function (assert) {
+    var inputs = GevalSinks(["foo"])
+    var events = []
+
+    inputs.events.foo(function (ev) {
+        events.push(ev)
+    })
+
+    inputs.sinks.foo.write("hello")
+
+    assert.deepEqual(events, ["hello"])
 
     assert.end()
 })

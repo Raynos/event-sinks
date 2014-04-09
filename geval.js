@@ -1,10 +1,16 @@
 var GevalEvent = require("geval/event")
+var cuid = require("cuid")
 
 var Sink = require("./sink.js")
 
 module.exports = EventSinks
 
 function EventSinks(id, names) {
+    if (Array.isArray(id)) {
+        names = id
+        id = cuid()
+    }
+
     var events = names.reduce(function(acc, key) {
         acc[key] = GevalEvent()
         return acc

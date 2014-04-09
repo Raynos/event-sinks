@@ -17,6 +17,7 @@
     "email": "raynos2@gmail.com"
   },
   "dependencies": {
+    "cuid": "^1.2.1",
     "geval": "~2.0.3"
   },
   "devDependencies": {
